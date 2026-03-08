@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const tasksRouter = require('./routes/tasks');
 app.use(express.json());
 
 let tasks = [
@@ -22,5 +23,7 @@ app.post('/tasks', (req, res) => {
   tasks.push(newTask);
   res.status(201).json(newTask);
 });
+
+app.use('/tasks', tasksRouter);
 
 app.listen(3000, ()=> console.log("API running on port 3000"));
