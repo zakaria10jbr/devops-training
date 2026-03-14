@@ -25,6 +25,9 @@ app.post('/tasks', (req, res) => {
   res.status(201).json(newTask);
 });
 
+// CI test change
+console.log("Testing CI with a Pull Request");
+
 app.use('/tasks', tasksRouter);
 
 app.listen(3000, ()=> console.log("API running on port 3000"));
